@@ -3,54 +3,50 @@
 
 
 
+#include <array>
+#include <string>
+#include <algorithm>
+using namespace std;
 #include <iostream>
-#include <string>
-using namespace std;
+
 int main()
 {
-	string snacks[5][5] = {
-		{"_","_","_","_","_"}, //1 row
-	{"_", "O", "_", "O", "_"}, //2 row
-	{"_", "@", "@", "@", "_"}, //3 row
-	{"_", "^", "^", "^", "_"}, //4 row
-	{"_", "V", "V", "V","_" } //5 row
-	};
-
-	for (int x = 0; x < 5; x++)
-	{
-		cout << endl;
-		for (int y = 0; y < 5; y++)
-			cout << snacks[x][y];
-	}
-	cout << endl;
-}
-  
-  
-  
-  
-  
-  
-  #include <iostream>
-#include <string>
-using namespace std;
-int main()
-{
-    int courses[5];
-
-    for (int i = 0; i < 5; i++) {
-        cout <<"Input the " << i+1 <<" number" << endl;
-        cin >> courses[i];
-        while (cin.fail()) {
-            cout << "invalid command, enter the number again\n";
+    cout << "Hello User!\nEnter marks for five subjects";
+    int marks[5];
+    int sum=0;
+    for (int i = 0; i < 5; i++)
+    {
+        cout << "\nInput the subject marks" << endl;
+        cin >> marks[i];
+	//if the user enters alphabet or marks more than 100 or less than zero (negative)
+        while (cin.fail() || marks[i]>100 || marks[i]<0) {
+            cout << "invalid command, enter the marks again\n";
             cin.clear();
             cin.ignore();
-            cin >> courses[i];
+            cin >> marks[i];
         }
-    }
-    cout << "the numbers are: \n";
-    for (auto course : courses) {//range based for loop
-        cout << course << endl;
-    }
 
-
-   }
+          sum = sum + marks[i];
+        }
+    cout << "\nYour average is: " << sum / 5<<endl;
+}
+	
+	
+	
+	
+	
+	
+	#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    //declaring and initialising string array for the months
+    string months[12] = { "January", "February", "March","April","May","June","July","August","September","October","November","December" };
+    
+    //displaying the values stored in the months array
+    for (int i = 0; i < 12; i++)
+    {
+        cout << months[i] << endl;
+    }
+}
